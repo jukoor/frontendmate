@@ -1,0 +1,42 @@
+.sidebar {
+	min-width: 240px;
+	flex: 0 240px;
+	border-right: 1px solid #333;
+}
+
+.sidebar .sidebar_header {
+	margin-bottom: 50px;
+	padding: 30px;
+}
+
+.sidebar .menu_list_item {
+	list-style: none;
+	width: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	border-left: 4px solid transparent;
+	padding: 10px;
+}
+
+.sidebar .menu_list_item:first-of-type {
+	border-left: 4px solid #2196f3;
+}
+
+.sidebar .menu_list_item:first-of-type .list_item_title {
+	color: #2196f3;
+}
+
+.sidebar .list_item_icon {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.sidebar .list_item_title {
+	display: inline-block;
+	position: relative;
+	font-weight: 700;
+}

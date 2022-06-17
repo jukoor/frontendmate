@@ -1,0 +1,27 @@
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'DM Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: #f3f6fd;
+	font-weight: 400;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	cursor: pointer;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}

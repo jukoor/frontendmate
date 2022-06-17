@@ -1,0 +1,13 @@
+.projects {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.project {
+	border-radius: 25px;
+	background: lightgrey;
+	flex: 0 0 calc(50% - 15px);
+	margin-bottom: 30px;
+	aspect-ratio: 1;
+}
