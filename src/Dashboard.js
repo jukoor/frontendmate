@@ -11,9 +11,9 @@ function Dashboard() {
 
 	/* function to get all tasks from firestore in realtime */
 	useEffect(() => {
-		const q = query(collection(db, 'golivechecklist'));
+		const q = query(collection(db, 'golivechecklist'), orderBy('id', 'desc'));
 		onSnapshot(q, (querySnapshot) => {
-			console.log(querySnapshot);
+
 			setProjects(querySnapshot.docs.map(doc => ({
 				id: doc.id,
 				data: doc.data()

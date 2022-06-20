@@ -1,7 +1,8 @@
 .sidebar {
-	min-width: 240px;
+	width: 240px;
 	flex: 0 240px;
 	border-right: 1px solid #333;
+	height: 100vh;
 }
 
 .sidebar .sidebar_header {
@@ -12,19 +13,28 @@
 .sidebar .menu_list_item {
 	list-style: none;
 	width: 100%;
+	margin-bottom: 15px;
+}
+
+.sidebar .menu_link {
 	position: relative;
 	display: flex;
 	align-items: center;
-	margin-bottom: 15px;
+	text-decoration: none;
 	border-left: 4px solid transparent;
 	padding: 10px;
+	color: #333;
 }
 
-.sidebar .menu_list_item:first-of-type {
+.sidebar .menu_link:visited {
+	color: #333;
+}
+
+.sidebar .menu_link.active {
 	border-left: 4px solid #2196f3;
 }
 
-.sidebar .menu_list_item:first-of-type .list_item_title {
+.sidebar .menu_link.active .list_item_title {
 	color: #2196f3;
 }
 

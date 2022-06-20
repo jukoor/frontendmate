@@ -1,4 +1,22 @@
 import './sidebar.css';
+import { Route, Routes, NavLink } from "react-router-dom";
+
+const routeLinks = [{
+	id: 0,
+	title: 'Projects',
+	icon: 'target',
+	target: '/'
+}, {
+	id: 1,
+	title: 'Tasks',
+	icon: 'tasks',
+	target: '/tasks'
+}, {
+	id: 2,
+	title: 'Settings',
+	icon: 'settings',
+	target: '/settings'
+}]
 
 function Sidebar() {
 
@@ -6,21 +24,20 @@ function Sidebar() {
 		<aside className='sidebar'>
 			<div className="sidebar_header">
 				<h2 className="sidebar_title">Frontend Mate</h2>
+
 			</div>
 			<div className="sidebar_menu">
 				<ul className="menu_list">
-					<li className="menu_list_item">
-						<span className="list_item_icon"><img src="assets/icons/sidebar/target.svg" /></span>
-						<span className="list_item_title">Projects</span>
+
+				{routeLinks.map(({id, title, icon, target}) => (
+					<li className="menu_list_item" key={id}>
+					<NavLink className={({ isActive }) => (isActive ? 'menu_link active' : 'menu_link inactive')} to={target}>
+						<span className="list_item_icon"><img src={`assets/icons/sidebar/${icon}.svg`} /></span>
+						<span className="list_item_title">{title}</span>
+					</NavLink>
 					</li>
-					<li className="menu_list_item">
-						<span className="list_item_icon"><img src="assets/icons/sidebar/tasks.svg" /></span>
-						<span className="list_item_title">Tasks</span>
-					</li>
-					<li className="menu_list_item">
-						<span className="list_item_icon"><img src="assets/icons/sidebar/settings.svg" /></span>
-						<span className="list_item_title">Settings</span>
-					</li>
+				))}
+
 				</ul>
 			</div>
 
