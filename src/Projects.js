@@ -1,18 +1,17 @@
-import './dashboard.css';
+import './projects.css';
 import Project from "./Project";
 import Header from "./Header"
 import { useState, useEffect } from 'react';
-import { collection, query, orderBy, where, onSnapshot } from "firebase/firestore";
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from './firebase';
 
-function Dashboard() {
+function Projects() {
 
 	const [projects, setProjects] = useState([]);
 
 	/* function to get all tasks from firestore in realtime */
 	useEffect(() => {
-		const projectsRef = collection(db, 'projects');
-		const q = query(projectsRef, where("completed", "==", true));
+		const q = query(collection(db, 'golivechecklist'), orderBy('id', 'desc'));
 		onSnapshot(q, (querySnapshot) => {
 
 			setProjects(querySnapshot.docs.map(doc => ({
@@ -27,7 +26,7 @@ function Dashboard() {
 
 		<div className='dashboard'>
 		<Header/>
-		{projects.length}
+
 			<div className='projects'>
 					{projects.map((project) => (
 						<Project
@@ -43,4 +42,4 @@ function Dashboard() {
 	)
 }
 
-export default Dashboard
+export default Projects

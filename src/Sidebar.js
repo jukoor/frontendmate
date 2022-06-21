@@ -3,16 +3,21 @@ import { Route, Routes, NavLink } from "react-router-dom";
 
 const routeLinks = [{
 	id: 0,
-	title: 'Projects',
-	icon: 'target',
+	title: 'Dashboard',
+	icon: 'dashboard',
 	target: '/'
 }, {
 	id: 1,
+	title: 'Projects',
+	icon: 'target',
+	target: '/projects'
+}, {
+	id: 2,
 	title: 'Tasks',
 	icon: 'tasks',
 	target: '/tasks'
 }, {
-	id: 2,
+	id: 3,
 	title: 'Settings',
 	icon: 'settings',
 	target: '/settings'

@@ -13,7 +13,7 @@ function TaskManager() {
 
 	/* function to get all tasks from firestore in realtime */
 	useEffect(() => {
-		const q = query(collection(db, 'golivechecklist'), orderBy('id', 'desc'))
+		const q = query(collection(db, 'tasks'), orderBy('id', 'desc'))
 		onSnapshot(q, (querySnapshot) => {
 			setTasks(querySnapshot.docs.map(doc => ({
 				id: doc.id,
@@ -59,7 +59,7 @@ function TaskManager() {
 	}
 
 	return (
-		<div className='taskManager'>
+		<section className='section tasks'>
 			<header>Go Live Checklist</header>
 			<div className='taskManager__container'>
 				<button
@@ -101,7 +101,7 @@ function TaskManager() {
 				<AddTask onClose={() => setOpenAddModal(false)} open={openAddModal} />
 			}
 
-		</div>
+		</section>
 	)
 }
 
