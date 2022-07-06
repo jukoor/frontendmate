@@ -5,3 +5,23 @@
 .app {
 	display: flex;
 }
+
+/* Container */
+.container {
+	width: 100%;
+	max-width: 100%;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 768px){
+	.container {
+		max-width: 750px;
+	}
+}
+
+@media screen and (min-width: 1200px){
+	.container {
+		max-width: 950px;
+	}
+}

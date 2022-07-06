@@ -5,7 +5,7 @@ function Project({ id, title, description }) {
 
 	return (
 		<div className="project">
-			<div className='project__body'>
+			<div className='project_body'>
 				<h2><strong>Title:</strong> {title}</h2>
 				<p><strong>Description:</strong> {description}</p>
 			</div>
