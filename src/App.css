@@ -5,7 +5,15 @@
 .app {
 	display: flex;
 }
-
+div {
+	position: relative;
+}
+button {
+	padding: 8px 16px;
+	border-radius: 10px;
+	box-shadow: none;
+	border: 2px solid transparent;
+}
 /* Container */
 .container {
 	width: 100%;

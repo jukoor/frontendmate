@@ -1,12 +1,12 @@
 .dashboard {
     flex: 1;
-    padding-top: 30px;
+    padding-top: 140px;
 }
 
 .dashboard .dashboard_tiles {
     display: flex;
     gap: 20px;
-    margin-bottom: 50px;;
+    margin-bottom: 70px;;
 }
 .dashboard .tile {
     flex: 1;
@@ -37,22 +37,62 @@
 .dashboard .tile_title {
     font-size: 18px;
 }
-.dashboard .recent_projects {
+
+.dashboard .recent_tasks_and_projects {
+    display: flex;
     margin-bottom: 50px;
 }
-.dashboard .recent_projects .headline{
+.dashboard .recent_tasks_and_projects .recent_col{
+    flex: 1 0 50%;
+    min-width: 50%;
+}
+.dashboard .recent_projects {
+   
+}
+.dashboard .recent_col .headline{
     margin-bottom: 20px;
 }
-.dashboard .recent_projects .recent_project {
+.dashboard .recent_item {
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
     background: lightgrey;
 }
-.dashboard .recent_projects .inner {
+
+.dashboard .recent_item:last-child {
+    margin-bottom: 0;
+}
+.dashboard .recent_col .inner {
     background-color: #fff;
     border-radius: 25px;
     padding: 20px;
-    min-height: 200px;
     box-shadow: 0px 5px 7px 4px #dadada70;
+    margin-bottom: 40px;
+}
+
+.dashboard .recent_col.recent_tasks {
+    padding-right: 10px;
+}
+.dashboard .recent_col.recent_projects {
+    padding-left: 10px;
+}
+
+.dashboard .btn_add_task {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.dashboard .btn_add_task .circle_icon{
+   max-width: 36px;
+   display: inline-block;
+   border-radius: 12px;
+   background: #81c784;
+   padding: 4px;
+}
+
+.dashboard .btn_add_task .label{
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 18px;
 }
