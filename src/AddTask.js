@@ -1,9 +1,8 @@
 import Modal from "./Modal"
 import {useState} from 'react'
 import './addTask.css'
-import {db} from './firebase'
-import {collection, addDoc} from 'firebase/firestore'
-
+import { db } from './firebase'
+import {Timestamp, collection, addDoc} from 'firebase/firestore'
 
 function AddTask({onClose, open}) {
 
@@ -15,11 +14,12 @@ function AddTask({onClose, open}) {
 	const handleSubmit = async (e) => {
 	   e.preventDefault()
 	   try {
-	     await addDoc(collection(db, 'golivechecklist'), {
+	     await addDoc(collection(db, 'tasks'), {
 	       title: title,
 	       description: description,
 	       completed: false,
-				 category: category
+		   category: category,
+		   lastEdited: Timestamp.fromDate(new Date())
 	     })
 	     onClose()
 	   } catch (err) {

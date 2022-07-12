@@ -1,10 +1,14 @@
-
+import Header from "./Header"
 function Settings() {
-
+	{document.title = "Settings"}
 	return (
-		<div className='settings'>
-			<h2 className="settings_title">Settings</h2>
-		</div>
+		<section className='settings section'>
+
+			<div className='container'>
+				<Header headline="Settings" />
+			</div>
+		</section>
+
 	)
 }
 

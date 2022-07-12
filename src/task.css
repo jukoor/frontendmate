@@ -1,17 +1,52 @@
-.task{
+.task {
   width: 100%;
   padding: 15px 20px;
   border-left: 4px solid hsl(210, 10%, 75%);
   background-color: white;
-  max-width: 700px;
-  margin: 0 auto;
   display: flex;
-  gap: 20px;
   align-items: center;
-  box-sizing: border-box;
+  margin-bottom: 25px;
 }
 
-.task--borderColor{
+.task .task_body {
+  flex: 1;
+}
+
+.task .task_body .title_and_status {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task .task_body .title_and_status .status {
+  padding: 2px 10px;
+  background-color: #dbdbdb;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+/* Status: New (1) */
+.task .task_body .title_and_status .status.status_1 {
+  background-color: #b5e5b5;
+  color: #068206;
+}
+
+/* Status: In Progress (2) */
+.task .task_body .title_and_status .status.status_2 {
+  background-color: #ffca7b;
+  color: #bb3737;
+}
+
+/* Status: Done (3) */
+.task .task_body .title_and_status .status.status_3 {
+  background-color: #91c0c3;
+  color: #0d597b;
+}
+
+.task--borderColor {
   border-color: green;
   box-shadow: 0 6px 18px -9px hsl(210, 15%, 65%);
 }
@@ -25,6 +60,7 @@
 .checkbox-custom {
   display: none;
 }
+
 .checkbox-custom-label {
   display: inline-block;
   position: relative;
@@ -32,19 +68,21 @@
   margin: 5px;
   cursor: pointer;
 }
-.checkbox-custom + .checkbox-custom-label:before {
+
+.checkbox-custom+.checkbox-custom-label:before {
   content: '';
   background: inherit;
   border-radius: 5px;
   border: 2px solid hsl(210, 15%, 70%);
   display: inline-block;
   vertical-align: middle;
-  width: 12px; 
+  width: 12px;
   height: 12px;
-  padding: 2px; 
+  padding: 2px;
   margin-right: 10px;
 }
-.checkbox-custom:checked + .checkbox-custom-label:after {
+
+.checkbox-custom:checked+.checkbox-custom-label:after {
   content: "";
   padding: 2px;
   position: absolute;
@@ -53,25 +91,26 @@
   border: solid green;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
-  top: 2px; left: 5px;
+  top: 2px;
+  left: 5px;
 }
 
-.task__body p{
+.task__body p {
   margin: 10px 0 0 0;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical; 
+  -webkit-box-orient: vertical;
 }
 
-.task__buttons{
+.task__buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
   align-items: center;
 }
 
-.task__buttons > button {
+.task__buttons>button {
   background-color: hsl(210, 70%, 60%);
   padding: 5px 10px;
   font-size: 16px;
@@ -80,11 +119,11 @@
   color: white;
 }
 
-.task__buttons > button:hover {
+.task__buttons>button:hover {
   background-color: hsl(210, 70%, 50%);
 }
 
-.task__buttons > button:active{
+.task__buttons>button:active {
   background-color: hsl(210, 70%, 60%);
 }
 

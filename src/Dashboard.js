@@ -92,9 +92,9 @@ function Dashboard() {
 
 	return (
 
-		<div className='dashboard'>
+		<section className='section dashboard'>
 			<div className="container">
-				<Header />
+				<Header headline="Welcome back, Julian 👋" />
 
 				<div className='dashboard_tiles'>
 					{tileData.map((tile) => (
@@ -106,7 +106,7 @@ function Dashboard() {
 					))}
 				</div>
 
-				<div className="recent_tasks_and_projects">
+				<div className="recent_tasks_and_projects hide">
 
 					<div className="recent_tasks recent_col">
 						<h2 className="headline">Recent Tasks</h2>
@@ -139,7 +139,7 @@ function Dashboard() {
 
 				
 			</div>
-		</div>
+		</section>
 	)
 }
 

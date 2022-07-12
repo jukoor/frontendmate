@@ -1,6 +1,5 @@
 .dashboard {
-    flex: 1;
-    padding-top: 140px;
+
 }
 
 .dashboard .dashboard_tiles {
@@ -81,6 +80,7 @@
     display: flex;
     align-items: center;
     width: 100%;
+    background: none;
 }
 
 .dashboard .btn_add_task .circle_icon{

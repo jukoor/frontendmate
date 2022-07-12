@@ -24,10 +24,11 @@ function Projects() {
 	console.log(projects);
 	return (
 
-		<div className='dashboard'>
-		<Header/>
+		<section className='projects section'>
+			<div className="container">
+				<Header headline="Your Projects" />
 
-			<div className='projects'>
+				<div className='projects'>
 					{projects.map((project) => (
 						<Project
 							id={project.id}
@@ -36,9 +37,9 @@ function Projects() {
 							description={project.data.description}
 						/>
 					))}
+				</div>
 			</div>
-
-		</div>
+		</section>
 	)
 }
 

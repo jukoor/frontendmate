@@ -1,6 +1,7 @@
 import './taskManager.css'
 import Task from './Task'
 import AddTask from './AddTask'
+import Header from './Header'
 import { useState, useEffect } from 'react'
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore"
 import { db } from './firebase'
@@ -11,9 +12,11 @@ function TaskManager() {
 	const [tasks, setTasks] = useState([]);
 	const [filteredTasks, setFilteredTasks] = useState([]);
 
+	{document.title = "Tasks"}
+
 	/* function to get all tasks from firestore in realtime */
 	useEffect(() => {
-		const q = query(collection(db, 'tasks'), orderBy('id', 'desc'))
+		const q = query(collection(db, 'tasks'), orderBy('lastEdited', 'desc'))
 		onSnapshot(q, (querySnapshot) => {
 			setTasks(querySnapshot.docs.map(doc => ({
 				id: doc.id,
@@ -25,7 +28,7 @@ function TaskManager() {
 			})))
 		})
 	}, [])
-	console.log(filteredTasks);
+
 	const test = () => {
 
 		let mapped = tasks.filter(task => {
@@ -58,30 +61,33 @@ function TaskManager() {
 		})))
 	}
 
+
 	return (
-		<section className='section tasks'>
-			<header>Go Live Checklist</header>
-			<div className='taskManager__container'>
+		<section className='tasks section'>
+
+			<div className='container'>
+				<Header headline="Your Tasks" />
+				{tasks.length}
 				<button
 					onClick={() => setOpenAddModal(true)}>
 					Add task +
-        </button>
+				</button>
 				<button
 					className="hide"
 					onClick={() => test()}>
 					Filter Cat 1
-        </button>
+				</button>
 				<button
 					className="hide"
 					onClick={() => test2()}>
 					Filter Cat 2
-        </button>
+				</button>
 				<button
 					className="hide"
 					onClick={() => test3()}>
 					Filter All
-        </button>
-				<div className='taskManager__tasks'>
+				</button>
+				<div className='tasks'>
 					{filteredTasks.map((task) => (
 						<Task
 							id={task.id}
@@ -92,6 +98,8 @@ function TaskManager() {
 							statusid={task.data.statusid}
 							deployed={task.data.deployed}
 							category={task.data.category}
+							status={task.data.status}
+							statusId={task.data.statusId}
 						/>
 					))}
 				</div>

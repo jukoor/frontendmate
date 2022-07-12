@@ -2,8 +2,10 @@ import './task.css'
 import {useState} from 'react'
 import TaskItem from './TaskItem'
 import EditTask from './EditTask'
+import { db } from './firebase'
+import { doc, deleteDoc } from "firebase/firestore";
 
-function Task({id, title, description, category, statusid, deployed, completed}) {
+function Task({id, title, description, category, statusid, deployed, completed, status, statusId}) {
 
   const [checked, setChecked] = useState(completed)
   const [open, setOpen] = useState({edit:false, view:false})
@@ -15,28 +17,31 @@ function Task({id, title, description, category, statusid, deployed, completed})
    /* function to update document in firestore */
 
    /* function to delete a document from firstore */
+   const handleDeleteTask = async (e) => {
+    e.preventDefault()
+    let result;
+    await deleteDoc(doc(db, "tasks", "btPVxQPz0hV8Hh5ipd4a"));
+  }
 
   return (
-    <div className={`task ${checked && 'task--borderColor'}`}>
+    <div className={`task ${checked && 'task--borderColor'}`} id={id}>
       <div>
         <input
           id={`checkbox-${id}`}
           className='checkbox-custom'
           name="checkbox"
-          defaultChecked={checked}
+          defaultChecked={completed}
           type="checkbox" />
         <label
           htmlFor={`checkbox-${id}`}
           className="checkbox-custom-label"
           onClick={() => setChecked(!checked)} ></label>
       </div>
-      <div className='task__body'>
-        <h2><strong>Title:</strong> {title}</h2>
-        <p><strong>Description:</strong> {description}</p>
-				<p><strong>Status:</strong> {statusid}</p>
-				<p><strong>Deployed:</strong> {deployed}</p>
-				<p><strong>Completed:</strong> {completed}</p>
-				<p><strong>Category:</strong> {category}</p>
+      <div className='task_body'>
+        <div className="title_and_status">
+        <h2 className="headline">{title}</h2>
+        <div className={`status status_${statusId}`}>{status}</div>
+        </div>
         <div className='task__buttons'>
           <div className='task__deleteNedit'>
             <button
@@ -44,7 +49,7 @@ function Task({id, title, description, category, statusid, deployed, completed})
               onClick={() => setOpen({...open, edit: true})}>
               Edit
             </button>
-            <button className='task__deleteButton'>Delete</button>
+            <button onClick={handleDeleteTask} className='task__deleteButton'>Delete</button>
           </div>
           <button
             onClick={() => setOpen({...open, view: true})}>

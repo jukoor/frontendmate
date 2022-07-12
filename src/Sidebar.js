@@ -1,6 +1,7 @@
 import './sidebar.css';
 import { Route, Routes, NavLink } from "react-router-dom";
-
+// useDocumentTitle.js
+import { useRef, useEffect } from 'react'
 const routeLinks = [{
 	id: 0,
 	title: 'Dashboard',
@@ -22,6 +23,24 @@ const routeLinks = [{
 	icon: 'settings',
 	target: '/settings'
 }]
+
+
+
+function useDocumentTitle(title, prevailOnUnmount = false) {
+  const defaultTitle = useRef(document.title);
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
+  useEffect(() => () => {
+    if (!prevailOnUnmount) {
+      document.title = defaultTitle.current;
+    }
+  }, [])
+}
+
+
 
 function Sidebar() {
 

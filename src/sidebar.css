@@ -1,9 +1,10 @@
 .sidebar {
 	width: 240px;
+	height: 100vh;
 	flex: 0 240px;
 	border-right: 1px solid #e0e0e0;
-	height: 100vh;
 	background-color: #fff;
+	position: fixed;
 }
 
 .sidebar .sidebar_header {
