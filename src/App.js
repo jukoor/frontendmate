@@ -4,6 +4,7 @@ import Dashboard from './Dashboard'
 import Projects from './Projects'
 import TaskManager from './TaskManager'
 import Settings from './Settings'
+import CreateElementOverlay from './CreateElementOverlay';
 import { Route, Routes } from "react-router-dom";
 
 
@@ -35,6 +36,7 @@ function App() {
 				<Route key={path} path={path} element={main()} />
 			))}
 		</Routes>
+		<CreateElementOverlay />
 		</div>
 	);
 }

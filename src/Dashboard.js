@@ -1,5 +1,5 @@
 import './dashboard.css';
-import Project from "./Project";
+import ProjectCard from "./ProjectCard";
 import DashboardTile from "./DashboardTile";
 import Header from "./Header"
 import { useState, useEffect } from 'react';

@@ -1,0 +1,88 @@
+.modal {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100vw;
+    left: 0;
+    z-index: 5;
+}
+
+.modal::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.modal .modal_inner {
+    background: #fff;
+    margin: 25px;
+    width: 600px;
+    position: absolute;
+    padding: 45px 70px;
+    border-radius: 15px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+.modal .modal_close {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    cursor: pointer;
+}
+
+.modal .modal_header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.modal .modal_title {}
+
+.modal .modal_subtitle {
+    color: grey;
+}
+
+.modal .create_switch_container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.modal .create_switch_container .option {
+    flex: 1;
+    border-radius: 5px;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+.modal .create_switch_container .option .option_inner {
+    border: 2px solid #333;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: border-color .3s ease-out;
+}
+
+.modal .create_switch_container .option.option_block .option_inner {
+    padding: 46px;
+}
+
+.modal .create_switch_container .option .option_label {
+    text-align: center;
+    color: grey;
+    font-weight: 700;
+}
+.modal .create_switch_container .option:hover .option_inner, 
+.modal .create_switch_container .option.active .option_inner {
+    border-color: #4db6ac;
+}
+
+.modal .create_switch_container .option.active .option_label {
+    color: #333;
+}
