@@ -6,7 +6,7 @@ import TaskManager from './TaskManager'
 import Settings from './Settings'
 import CreateElementOverlay from './CreateElementOverlay';
 import { Route, Routes } from "react-router-dom";
-
+import { useState } from 'react'
 
 const routes = [
 	{
@@ -27,16 +27,26 @@ const routes = [
 ];
 function App() {
 
+	function handleCreateClick() {
+		setCreateModalIsOpen(!createModalIsOpen);
+	}
+
+	function handleCloseModal() {
+		setCreateModalIsOpen(false);
+	}
+
+	const [createModalIsOpen, setCreateModalIsOpen] = useState(false);
+
 	return (
 		<div className='app'>
-		<Sidebar />
+		<Sidebar onCreateClick={handleCreateClick} />
 
 		<Routes>
 			{routes.map(({ path, main }) => (
 				<Route key={path} path={path} element={main()} />
 			))}
 		</Routes>
-		<CreateElementOverlay />
+		{createModalIsOpen && <CreateElementOverlay isOpen={createModalIsOpen} closeModal={handleCloseModal} />}
 		</div>
 	);
 }

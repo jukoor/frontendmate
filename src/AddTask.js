@@ -1,4 +1,4 @@
-import Modal from "./Modal"
+import Modal from "./ModalOld"
 import {useState} from 'react'
 import './addTask.css'
 import { db } from './firebase'

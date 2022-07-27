@@ -1,50 +1,68 @@
-import Modal from "./Modal"
+import Modal from "./ModalOld"
 import { useState } from 'react'
 import './createElementOverlay.css'
 import { db } from './firebase'
 import { Timestamp, collection, addDoc } from 'firebase/firestore'
 
-function createElementOverlay({ onClose, open }) {
+function createElementOverlay({ isOpen, closeModal }) {
 
-	return (
-		<div className="create_overlay modal">
-			<div className="modal_inner">
-				<div className="modal_close">X</div>
-				<div className="modal_header">
-					<h3 className="modal_title">🍀 Create new element</h3>
-					<p className="modal_subtitle">Subtitle dann hier</p>
-				</div>
-				<div className="modal_body">
-					<div className="create_switch_container">
-						<div className="option option_task active">
-							<div className="option_inner">
-								<img src={require('./assets/icons/sidebar/task.svg').default} />
-							</div>
-							<div className="option_label">Task</div>
-						</div>
-						<div className="option option_block">
-						<div className="option_inner">
-								<img src={require('./assets/icons/sidebar/block.svg').default} />
-							</div>
-							<div className="option_label">Block</div>
-						</div>
-						<div className="option option_project">
-						<div className="option_inner">
-								<img src={require('./assets/icons/sidebar/project.svg').default} />
-							</div>
-							<div className="option_label">Project</div>
-						</div>
+	const handleSubmit = async (e) => {
+
+	}
+	if (isOpen) {
+		return (
+			<div className="create_elements_overlay">
+				<div className="overlay_titlebar">
+					<div className="left_col">
+						<div className="overlay_close"></div>
+						<div className="overlay_title">Create Task, Block or Project</div>
 					</div>
-				</div>
-				<div className="modal_footer">
-					<div className="button_bar">
+					<div className="right_col">
+						<button type="button" className="btn btn_secondary">Cancel</button>
 						<button type="button" className="btn">Next</button>
 					</div>
-
+				</div>
+				<div className="overlay_body">
+					<div className="inner">
+						<div className="create_switch_container">
+							<div className="option option_task active">
+								<label className="option_label">
+									<input className="option_input" type="radio" name="radio" defaultChecked />
+									<span className="option_label_inner">
+										<img className="option_icon" src={require('./assets/icons/sidebar/task.svg').default} />
+										<span className="option_title">Task</span>
+										<span className="option_description">Create a new Task or multiple after each other.</span>
+									</span>
+								</label>
+							</div>
+							<div className="option option_task active">
+								<label className="option_label">
+									<input className="option_input" type="radio" name="radio" />
+									<span className="option_label_inner">
+										<img className="option_icon" src={require('./assets/icons/sidebar/block.svg').default} />
+										<span className="option_title">Block</span>
+										<span className="option_description">Create a block of tasks either on your own or from predefined templates.</span>
+									</span>
+								</label>
+							</div>
+							<div className="option option_task active">
+								<label className="option_label">
+									<input className="option_input" type="radio" name="radio" />
+									<span className="option_label_inner">
+										<img className="option_icon" src={require('./assets/icons/sidebar/project.svg').default} />
+										<span className="option_title">Project</span>
+										<span className="option_description">Create a new Project to hold blocks and tasks.</span>
+									</span>
+								</label>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	)
+		)
+	} else {
+		return;
+	}
 }
 
 export default createElementOverlay

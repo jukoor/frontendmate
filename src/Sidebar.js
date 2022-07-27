@@ -4,7 +4,6 @@ import CreateElementOverlay from './CreateElementOverlay';
 import { useRef, useEffect, useState } from 'react'
 
 
-
 const routeLinks = [{
 	id: 0,
 	title: 'Dashboard',
@@ -43,17 +42,13 @@ function useDocumentTitle(title, prevailOnUnmount = false) {
 }
 
 
-
-
-
-function Sidebar() {
+function Sidebar({onCreateClick}) {
 
 	const [toggleMultiBtn, setToggleMultiBtn] = useState(false);
 
 	const handleMultiBtnClick = event => {
-		console.log(toggleMultiBtn);
+		
 		setToggleMultiBtn(!toggleMultiBtn);
-		console.log(toggleMultiBtn);
 	}
 
 	return (
@@ -95,8 +90,10 @@ function Sidebar() {
 						</div>
 					</div>
 				</div>
-				<button type="button" onClick={handleMultiBtnClick} className="btn create_multi_btn js_create_multi_btn">Create</button>
+				<button type="button" onClick={onCreateClick} className="btn create_multi_btn js_create_multi_btn">Create</button>
 			</div>
+
+		
 			
 		</aside>
 
