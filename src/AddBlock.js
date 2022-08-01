@@ -4,7 +4,7 @@ import './addTask.css'
 import { db } from './firebase'
 import {Timestamp, collection, addDoc} from 'firebase/firestore'
 
-function AddTask({onClose, open}) {
+function AddBlock({onClose, open}) {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -34,7 +34,7 @@ function AddTask({onClose, open}) {
           name='title'
           onChange={(e) => setTitle(e.target.value.toUpperCase())}
           value={title}
-          placeholder='Enter title'/>
+          placeholder='Enter Block'/>
 					<input
 	          type='text'
 	          name='category'
@@ -51,4 +51,4 @@ function AddTask({onClose, open}) {
   )
 }
 
-export default AddTask
+export default AddBlock

@@ -20,8 +20,8 @@
     align-items: center;
 }
 .create_elements_overlay .overlay_close {
-    width: 30px;
-    height: 30px;
+    width: 31px;
+    height: 31px;
     cursor: pointer;
     background: #d4d4d4 url('./assets/icons/close.svg') no-repeat center/24px;
     border-radius: 50%;
